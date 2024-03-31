@@ -16,4 +16,17 @@ docker exec -it postgres createdb --username=myuser --owner=myuser simple_bank
 migrate -path db/migration -database "postgresql://myuser:mypassword@localhost:5430/simple_bank?sslmode=disable" -verbose up
 ```
 
+## SQLC
+- Install sqlc
+```bash
+go get github.com/kyleconroy/sqlc/cmd/sqlc
+```
+- Generate sqlc.yaml
+```bash
+sqlc init
+```
+- Generate code
+```bash
+sqlc generate
+```
 
