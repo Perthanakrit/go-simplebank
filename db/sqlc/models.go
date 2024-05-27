@@ -5,9 +5,8 @@
 package db
 
 import (
+	"database/sql"
 	"time"
-
-	"github.com/jackc/pgx/v5/pgtype"
 )
 
 type Account struct {
@@ -19,17 +18,17 @@ type Account struct {
 }
 
 type Entry struct {
-	ID        int64       `json:"id"`
-	AccountID pgtype.Int8 `json:"account_id"`
+	ID        int64         `json:"id"`
+	AccountID sql.NullInt64 `json:"account_id"`
 	// must be poitisve
 	Amount    int64     `json:"amount"`
 	CreatedAt time.Time `json:"created_at"`
 }
 
 type Transfer struct {
-	ID            int64       `json:"id"`
-	FormAccountID pgtype.Int8 `json:"form_account_id"`
-	ToAccountID   pgtype.Int8 `json:"to_account_id"`
+	ID            int64         `json:"id"`
+	FormAccountID sql.NullInt64 `json:"form_account_id"`
+	ToAccountID   sql.NullInt64 `json:"to_account_id"`
 	// must be poitisve
 	Amount    int64     `json:"amount"`
 	CreatedAt time.Time `json:"created_at"`
