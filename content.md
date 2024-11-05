@@ -30,3 +30,12 @@ sqlc init
 sqlc generate
 ```
 
+### Start to generate
+1. new file and write `.spl` first
+2. run `sqlc generate`
+
+### ACID Property
+1. **Atomicity (A)**
+2. **Consistency (C)**
+3. **Isolation (I)**
+4. **Duration (D)**
