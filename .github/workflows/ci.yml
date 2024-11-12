@@ -20,7 +20,7 @@ jobs:
           POSTGRES_PASSWORD: mypassword
           POSTGRES_DB: simple_bank
         ports:
-          - 5432:5432
+          - 5430:5432
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -40,6 +40,9 @@ jobs:
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.1/migrate.darwin-amd64.tar.gz | tar xvz
           sudo mv migrate /usr/bin/migrate
           which migrate
+
+      - name: Ensure migrate is executable
+        run: chmod +x /usr/bin/migrate
 
       - name: Run migrations
         run: make migrateup
