@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 	"testing"
+
+	_ "github.com/lib/pq"
 )
 
 const (
@@ -14,6 +16,7 @@ const (
 
 var testQueries *Queries
 var testDB *sql.DB
+var testScore Store
 
 func TestMain(m *testing.M) {
 	var err error
